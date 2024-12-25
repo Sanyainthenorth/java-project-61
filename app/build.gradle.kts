@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("application")
+    id("checkstyle")
 }
 
 group = "hexlet.code"
@@ -23,3 +24,8 @@ tasks.getByName("run", JavaExec::class) {
 tasks.test {
     useJUnitPlatform()
 }
+checkstyle {
+    toolVersion = "10.12.4"
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+
