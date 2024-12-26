@@ -28,4 +28,10 @@ checkstyle {
     toolVersion = "10.12.4"
     configFile = file("config/checkstyle/checkstyle.xml")
 }
-
+tasks.jar {
+    manifest {
+        attributes(
+            "Main-Class" to "hexlet.code.App"
+        )
+    }
+}
