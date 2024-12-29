@@ -1,18 +1,19 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Engine;
 
 import java.util.Scanner;
 import java.util.Random;
 
-public class Sec {
-    public static void secondGame() {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-
-        //Cli.welcomeUser();
-        String name = Cli.welcomeUser();
-
+public class Sec extends Engine {
+    Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
+    @Override
+    public void taskGame() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
+    }
+    @Override
+    public void gameLogic(String name) {
         int correctAnswers = 0;
 
         while (correctAnswers < 3) {
@@ -36,6 +37,5 @@ public class Sec {
                 return;
             }
         }
-        System.out.println("Congratulations, " + name + "!");
     }
 }
