@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Thi extends Engine {
+public class Calc extends Engine {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
     @Override
