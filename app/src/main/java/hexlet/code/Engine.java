@@ -24,6 +24,6 @@ public class Engine {
         String name = greetingUser();
         taskGame();
         gameLogic(name);
-        endGame(name);
+        //endGame(name);
     }
 }

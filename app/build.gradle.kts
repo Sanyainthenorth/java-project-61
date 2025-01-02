@@ -1,3 +1,4 @@
+
 plugins {
     id("java")
     id("application")
@@ -35,3 +36,4 @@ tasks.jar {
         )
     }
 }
+

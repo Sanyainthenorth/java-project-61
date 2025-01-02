@@ -37,5 +37,6 @@ public class Even extends Engine {
                 return;
             }
         }
+        endGame(name);
     }
 }

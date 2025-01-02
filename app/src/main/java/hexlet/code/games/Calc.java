@@ -40,8 +40,10 @@ public class Calc extends Engine {
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + name + "!");
+                return;
             }
         }
+        endGame(name);
     }
     private char getRandomOperator(Random random) {
         int choice = random.nextInt(3);
