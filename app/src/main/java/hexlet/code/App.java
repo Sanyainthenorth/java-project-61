@@ -39,6 +39,7 @@ public class App {
             case 5:
                 Progression progression = new Progression();
                 progression.playGame();
+                break;
             case 0:
                 System.out.println("Goodbye!");
                 break;
