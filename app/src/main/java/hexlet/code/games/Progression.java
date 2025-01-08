@@ -10,7 +10,7 @@ public class Progression {
     public static String getQuestion() {
         int start = RANDOM.nextInt(10);
         int step = RANDOM.nextInt(6); // шаг в прогрессии
-        int missingIndex = RANDOM.nextInt(10);
+        int missingIndex = 1 + RANDOM.nextInt(10);
         StringBuilder progression = new StringBuilder();
 
         correctAnswer = "";
