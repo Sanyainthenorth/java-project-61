@@ -1,58 +1,51 @@
 package hexlet.code.games;
-
-import hexlet.code.Engine;
-
-import java.util.Scanner;
 import java.util.Random;
 
-public class Calc extends Engine {
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
-    @Override
-    public void taskGame() {
-        System.out.println("What is the result of the expression?");
+public class Calc {
+    private static final Random RANDOM = new Random();
+
+    public static String getQuestion() {
+        int number1 = RANDOM.nextInt(100);
+        int number2 = RANDOM.nextInt(100);
+        char operator = getRandomOperator();
+        return number1 + " " + operator + " " + number2;
     }
-    @Override
-    public void gameLogic(String name) {
-        int numberAttempts = 0;
-        while (numberAttempts < 3) {
-            int randomNumber1 = random.nextInt(101);
-            int randomNumber2 = random.nextInt(101);
-            char operator = getRandomOperator(random);
-            System.out.println("Question: " + randomNumber1 + operator + randomNumber2);
-            System.out.print("Your answer: ");
-            //String answer = scanner.nextLine();
-            int answer = scanner.nextInt();
-            scanner.nextLine();
-            int correctAnswer = 0;
+    public static String getTaskDescription() {
+        return "What is the result of the expression?";
+    }
+    public static String getCorrectAnswer(String question) {
+        String[] parts = question.split(" ");  // Разделяем по пробелам
+        int number1 = Integer.parseInt(parts[0]);
+        char operator = parts[1].charAt(0);
+        int number2 = Integer.parseInt(parts[2]);
+        int result;
 
-            if (operator=='+') {
-                correctAnswer = randomNumber1 + randomNumber2;
-            } else if (operator=='-') {
-                correctAnswer = randomNumber1 - randomNumber2;
-            } else if (operator=='*') {
-                correctAnswer = randomNumber1 * randomNumber2;
-            }
-
-            if (answer==correctAnswer) {
-                System.out.println("Correct!");
-                numberAttempts++;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                return;
-            }
+        switch (operator) {
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown operator: " + operator);
         }
-        endGame(name);
+        return Integer.toString(result);
     }
-    private char getRandomOperator(Random random) {
-        int choice = random.nextInt(3);
+
+
+    private static char getRandomOperator() {
+        int choice = RANDOM.nextInt(3);
         switch (choice) {
             case 0: return '+';
             case 1: return '-';
             case 2: return '*';
-            default: return '*';
+            default: return '+';
         }
     }
 }
+
 

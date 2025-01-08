@@ -1,46 +1,32 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
-
-import java.util.Scanner;
 import java.util.Random;
 
-public class GCD extends Engine {
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
+public class GCD {
+    private static final Random RANDOM = new Random();
 
-    @Override
-    public void taskGame() {
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public static String getQuestion() {
+        int number1 = RANDOM.nextInt(50);
+        int number2 = RANDOM.nextInt(50);
+        return number1 + " " + number2;
+    }
+    public static String getTaskDescription() {
+        return "Find the greatest common divisor of given numbers.";
+    }
+    public static String getCorrectAnswer(String question) {
+        String[] parts = question.split(" ");
+        int number1 = Integer.parseInt(parts[0]);
+        int number2 = Integer.parseInt(parts[1]);
+        int result = findGCD(number1, number2);
+        return Integer.toString(result);
     }
 
-    @Override
-    public void gameLogic(String name) {
-
-        for (int numberAttempts = 0; numberAttempts < 3; numberAttempts++) {
-            int randomNumber1 = random.nextInt(101);
-            int randomNumber2 = random.nextInt(101);
-            System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
-            System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
-            scanner.nextLine();
-            int correctAnswer = findGCD(randomNumber1, randomNumber2);
-            if (answer==correctAnswer) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                return;
-            }
+    private static int findGCD(int number1, int number2) {
+        while (number2 != 0) {
+            int temp = number2;
+            number2 = number1 % number2;
+            number1 = temp;
         }
-        endGame(name);
-
-    }
-    public static int findGCD(int randomNumber1, int randomNumber2) {
-        while (randomNumber2 != 0) {
-            int temp = randomNumber2;
-            randomNumber2 = randomNumber1 % randomNumber2;
-            randomNumber1 = temp;
-        }
-        return randomNumber1;
+        return number1;
     }
 }
+

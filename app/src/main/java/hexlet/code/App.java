@@ -1,16 +1,10 @@
 package hexlet.code;
-
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        //String name = Engine.greetingUser();
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -21,38 +15,42 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        String name = null;
+
         switch (choice) {
             case 1:
-                Engine engine = new Engine();
-                engine.greetingUser();
+                name = Engine.greetingUser();
                 break;
             case 2:
-                Even evenGame = new Even();
-                evenGame.playGame();
+                name = Engine.greetingUser();
+                Engine.runGameLogic(name, "Even");
                 break;
             case 3:
-                Calc calcGame = new Calc();
-                calcGame.playGame();
+                name = Engine.greetingUser();
+                Engine.runGameLogic(name, "Calc");
                 break;
             case 4:
-                GCD gcdGame = new GCD();
-                gcdGame.playGame();
+                name = Engine.greetingUser();
+                Engine.runGameLogic(name, "GCD");
                 break;
             case 5:
-                Progression progression = new Progression();
-                progression.playGame();
+                name = Engine.greetingUser();
+                Engine.runGameLogic(name, "Progression");
                 break;
             case 6:
-                Prime prime = new Prime();
-                prime.playGame();
+                name = Engine.greetingUser();
+                Engine.runGameLogic(name, "Prime");
                 break;
             case 0:
                 System.out.println("Goodbye!");
                 break;
             default:
-                System.out.println("it is wrong");
+                System.out.println("Incorrect choice, please try again.");
                 break;
         }
         scanner.close();
     }
 }
+

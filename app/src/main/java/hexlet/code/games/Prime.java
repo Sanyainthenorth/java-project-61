@@ -1,51 +1,34 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
-
-import java.util.Scanner;
 import java.util.Random;
 
-public class Prime extends Engine {
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
-
-    @Override
-    public void taskGame() {
-
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+public class Prime {
+    private static final Random RANDOM = new Random();
+    private static String correctAnswer;
+    public static String getTaskDescription() {
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    }
+    public static String getQuestion() {
+        int number = RANDOM.nextInt(100);
+        correctAnswer = isPrime(number) ? "yes" : "no";
+        return Integer.toString(number);
     }
 
-    @Override
-    public void gameLogic(String name) {
-        int numberAttempts = 0;
-        while (numberAttempts < 3) {
-            int randomNum = random.nextInt(100);
-            System.out.println("Question: " + randomNum);
-            System.out.print("Your answer: ");
-            String answer = scanner.nextLine().toLowerCase();
+    public static String getCorrectAnswer() {
+        return correctAnswer;
+    }
 
-            String correctAnswer = isPrime(randomNum) ? "yes" : "no";
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                numberAttempts++;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                return;
-            }
+    private static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
         }
-        endGame(name);
-    }
-        public static boolean isPrime(int randomNum) {
-            if (randomNum <= 1) {
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
                 return false;
             }
-
-            for (int i = 2; i <= Math.sqrt(randomNum); i++) {
-                if (randomNum % i == 0) {
-                    return false;
-                }
-            }
-            return true;
         }
+
+        return true;
     }
+}
 
