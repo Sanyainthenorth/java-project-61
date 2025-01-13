@@ -1,14 +1,13 @@
 package hexlet.code.games;
-import java.util.Random;
+import hexlet.code.Engine;
 
 public class Even {
-    private static final Random RANDOM = new Random();
 
     public static String getTaskDescription() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
     public static String getQuestion() {
-        int number = RANDOM.nextInt(100);
+        int number = Engine.getRandomInt(0, 100);
         return Integer.toString(number);
     }
 

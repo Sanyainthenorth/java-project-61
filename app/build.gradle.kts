@@ -1,6 +1,5 @@
 
 plugins {
-    id("java")
     id("application")
     id("checkstyle")
 }
@@ -36,4 +35,3 @@ tasks.jar {
         )
     }
 }
-

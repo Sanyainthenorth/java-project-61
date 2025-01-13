@@ -1,12 +1,11 @@
 package hexlet.code.games;
-import java.util.Random;
+import hexlet.code.Engine;
 
 public class GCD {
-    private static final Random RANDOM = new Random();
 
     public static String getQuestion() {
-        int number1 = RANDOM.nextInt(50);
-        int number2 = RANDOM.nextInt(50);
+        int number1 = Engine.getRandomInt(0, 50);
+        int number2 = Engine.getRandomInt(0, 50);
         return number1 + " " + number2;
     }
     public static String getTaskDescription() {

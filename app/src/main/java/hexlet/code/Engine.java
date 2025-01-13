@@ -1,4 +1,5 @@
 package hexlet.code;
+import java.util.Random;
 import java.util.Scanner;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
@@ -18,6 +19,12 @@ public class Engine {
 
     private static final int MAX_ATTEMPTS = 3;
     private static final Scanner INPUT_SCANNER = new Scanner(System.in);
+
+    public static int getRandomInt(int number1, int number2) {
+        Random RANDOM = new Random();
+        return RANDOM.nextInt(number1, number2);
+
+    }
 
     public static void runGameLogic(String name, String gameType) {
         int numberAttempts = 0;

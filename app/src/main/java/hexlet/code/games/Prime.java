@@ -1,14 +1,13 @@
 package hexlet.code.games;
-import java.util.Random;
+import hexlet.code.Engine;
 
 public class Prime {
-    private static final Random RANDOM = new Random();
     private static String correctAnswer;
     public static String getTaskDescription() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
     public static String getQuestion() {
-        int number = RANDOM.nextInt(100);
+        int number = Engine.getRandomInt(0, 100);
         correctAnswer = isPrime(number) ? "yes" : "no";
         return Integer.toString(number);
     }

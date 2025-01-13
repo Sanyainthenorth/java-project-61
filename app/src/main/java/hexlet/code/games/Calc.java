@@ -1,12 +1,11 @@
 package hexlet.code.games;
-import java.util.Random;
+import hexlet.code.Engine;
 
 public class Calc {
-    private static final Random RANDOM = new Random();
 
     public static String getQuestion() {
-        int number1 = RANDOM.nextInt(100);
-        int number2 = RANDOM.nextInt(100);
+        int number1 = Engine.getRandomInt(0, 100);
+        int number2 = Engine.getRandomInt(0, 100);
         char operator = getRandomOperator();
         return number1 + " " + operator + " " + number2;
     }
@@ -38,7 +37,7 @@ public class Calc {
 
 
     private static char getRandomOperator() {
-        int choice = RANDOM.nextInt(3);
+        int choice = Engine.getRandomInt(0, 1);;
         switch (choice) {
             case 0: return '+';
             case 1: return '-';
