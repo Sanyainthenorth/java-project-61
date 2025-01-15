@@ -83,7 +83,8 @@ public class Engine {
     private static String getCorrectAnswer(String gameType, String question) {
         switch (gameType) {
             case "Even":
-                return Even.getCorrectAnswer(question);
+                boolean isEven = Even.getCorrectAnswer(question);
+                return isEven ? "yes" : "no";
             case "Calc":
                 return Calc.getCorrectAnswer(question);
             case "GCD":

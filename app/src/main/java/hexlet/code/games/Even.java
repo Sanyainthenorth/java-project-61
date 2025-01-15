@@ -11,9 +11,9 @@ public class Even {
         return Integer.toString(number);
     }
 
-    public static String getCorrectAnswer(String question) {
+    public static boolean getCorrectAnswer(String question) {
         int number = Integer.parseInt(question);
-        return (number % 2 == 0) ? "yes" : "no";
+        return number % 2 == 0;
     }
 }
 
