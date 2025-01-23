@@ -1,19 +1,22 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
-    private static String correctAnswer;
+
     public static String getTaskDescription() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
-    public static String getQuestion() {
-        int number = Engine.getRandomInt(0, 100);
-        correctAnswer = isPrime(number) ? "yes" : "no";
-        return Integer.toString(number);
-    }
 
-    public static String getCorrectAnswer() {
-        return correctAnswer;
+    public static String[][] getQuestionsAndAnswers() {
+        String[][] qa = new String[3][2];
+        for (int i = 0; i < 3; i++) {
+            int number = Utils.getRandomInt(0, 100);
+            String question = Integer.toString(number);
+            String correctAnswer = isPrime(number) ? "yes" : "no";
+            qa[i][0] = question;
+            qa[i][1] = correctAnswer;
+        }
+        return qa;
     }
 
     private static boolean isPrime(int number) {
@@ -30,4 +33,5 @@ public class Prime {
         return true;
     }
 }
+
 

@@ -1,11 +1,5 @@
 package hexlet.code;
-import java.util.Random;
 import java.util.Scanner;
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
 
 public class Engine {
     public static String greetingUser() {
@@ -17,22 +11,17 @@ public class Engine {
         return name;
     }
 
-    private static final int MAX_ATTEMPTS = 3;
     private static final Scanner INPUT_SCANNER = new Scanner(System.in);
 
-    public static int getRandomInt(int number1, int number2) {
-        Random RANDOM = new Random();
-        return RANDOM.nextInt(number1, number2);
 
-    }
-
-    public static void runGameLogic(String name, String gameType) {
-        int numberAttempts = 0;
-        String taskDescription = getTaskDescription(gameType);
+    public static void runGameLogic(String name, String taskDescription, String[][] qa) {
         System.out.println(taskDescription);
-        while (numberAttempts < MAX_ATTEMPTS) {
-            String question = getQuestion(gameType);
-            String correctAnswer = getCorrectAnswer(gameType, question);
+
+        int correctAnswersCount = 0;
+
+        for (String[] pair : qa) {
+            String question = pair[0];
+            String correctAnswer = pair[1];
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
@@ -40,60 +29,18 @@ public class Engine {
 
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct!");
-                numberAttempts++;
+                correctAnswersCount++;
             } else {
+
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 return;
             }
-        }
-        endGame(name);
-    }
 
-    private static void endGame(String name) {
-
-        System.out.println("Congratulations, " + name + "!");
-    }
-    private static String getTaskDescription(String gameType) {
-        switch (gameType) {
-            case "Even": return Even.getTaskDescription();
-            case "Calc": return Calc.getTaskDescription();
-            case "GCD": return GCD.getTaskDescription();
-            case "Progression": return Progression.getTaskDescription();
-            case "Prime": return Prime.getTaskDescription();
-            default: throw new IllegalArgumentException("Unknown game type: " + gameType);
-        }
-    }
-    private static String getQuestion(String gameType) {
-        switch (gameType) {
-            case "Even":
-                return Even.getQuestion();
-            case "Calc":
-                return Calc.getQuestion();
-            case "GCD":
-                return GCD.getQuestion();
-            case "Progression":
-                return Progression.getQuestion();
-            case "Prime":
-                return Prime.getQuestion();
-            default: throw new IllegalArgumentException("Неизвестный тип игры: " + gameType);
-        }
-    }
-
-    private static String getCorrectAnswer(String gameType, String question) {
-        switch (gameType) {
-            case "Even":
-                boolean isEven = Even.getCorrectAnswer(question);
-                return isEven ? "yes" : "no";
-            case "Calc":
-                return Calc.getCorrectAnswer(question);
-            case "GCD":
-                return GCD.getCorrectAnswer(question);
-            case "Progression":
-                return Progression.getCorrectAnswer();
-            case "Prime":
-                return Prime.getCorrectAnswer();
-            default: throw new IllegalArgumentException("Неизвестный тип игры: " + gameType);
+            if (correctAnswersCount == 3) {
+                System.out.println("Congratulations, " + name + "!");
+                return;
+            }
         }
     }
 }

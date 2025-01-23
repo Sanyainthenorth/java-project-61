@@ -1,4 +1,10 @@
 package hexlet.code;
+
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
@@ -24,23 +30,23 @@ public class App {
                 break;
             case 2:
                 name = Engine.greetingUser();
-                Engine.runGameLogic(name, "Even");
+                Engine.runGameLogic(name, Even.getTaskDescription(), Even.getQuestionsAndAnswers());
                 break;
             case 3:
                 name = Engine.greetingUser();
-                Engine.runGameLogic(name, "Calc");
+                Engine.runGameLogic(name, Calc.getTaskDescription(), Calc.getQuestionsAndAnswers());
                 break;
             case 4:
                 name = Engine.greetingUser();
-                Engine.runGameLogic(name, "GCD");
+                Engine.runGameLogic(name, GCD.getTaskDescription(), GCD.getQuestionsAndAnswers());
                 break;
             case 5:
                 name = Engine.greetingUser();
-                Engine.runGameLogic(name, "Progression");
+                Engine.runGameLogic(name, Progression.getTaskDescription(), Progression.getQuestionsAndAnswers());
                 break;
             case 6:
                 name = Engine.greetingUser();
-                Engine.runGameLogic(name, "Prime");
+                Engine.runGameLogic(name, Prime.getTaskDescription(), Prime.getQuestionsAndAnswers());
                 break;
             case 0:
                 System.out.println("Goodbye!");
