@@ -1,8 +1,13 @@
 package hexlet.code.games;
-
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
+    public static void startGame(String name) {
+        String taskDescription = getTaskDescription();
+        String[][] questionsAndAnswers = getQuestionsAndAnswers();
+        Engine.runGameLogic(name, taskDescription, questionsAndAnswers);
+    }
     public static String getTaskDescription() {
         return "What number is missing in the progression?";
     }

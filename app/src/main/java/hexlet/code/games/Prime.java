@@ -1,8 +1,13 @@
 package hexlet.code.games;
 import hexlet.code.Utils;
+import hexlet.code.Engine;
 
 public class Prime {
-
+    public static void startGame(String name) {
+        String taskDescription = getTaskDescription();
+        String[][] qa = getQuestionsAndAnswers();
+        Engine.runGameLogic(name, taskDescription, qa);
+    }
     public static String getTaskDescription() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }

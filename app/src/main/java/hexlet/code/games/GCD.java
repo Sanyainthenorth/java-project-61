@@ -1,9 +1,13 @@
 package hexlet.code.games;
-
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class GCD {
-
+    public static void startGame(String name) {
+        String taskDescription = getTaskDescription();
+        String[][] qa = getQuestionsAndAnswers();
+        Engine.runGameLogic(name, taskDescription, qa);
+    }
     public static String getTaskDescription() {
         return "Find the greatest common divisor of given numbers.";
     }

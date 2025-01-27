@@ -29,24 +29,19 @@ public class App {
                 name = Engine.greetingUser();
                 break;
             case 2:
-                name = Engine.greetingUser();
-                Engine.runGameLogic(name, Even.getTaskDescription(), Even.getQuestionsAndAnswers());
+                Even.startGame(name);
                 break;
             case 3:
-                name = Engine.greetingUser();
-                Engine.runGameLogic(name, Calc.getTaskDescription(), Calc.getQuestionsAndAnswers());
+                Calc.startGame(name);
                 break;
             case 4:
-                name = Engine.greetingUser();
-                Engine.runGameLogic(name, GCD.getTaskDescription(), GCD.getQuestionsAndAnswers());
+                GCD.startGame(name);
                 break;
             case 5:
-                name = Engine.greetingUser();
-                Engine.runGameLogic(name, Progression.getTaskDescription(), Progression.getQuestionsAndAnswers());
+                Progression.startGame(name);
                 break;
             case 6:
-                name = Engine.greetingUser();
-                Engine.runGameLogic(name, Prime.getTaskDescription(), Prime.getQuestionsAndAnswers());
+                Prime.startGame(name);
                 break;
             case 0:
                 System.out.println("Goodbye!");

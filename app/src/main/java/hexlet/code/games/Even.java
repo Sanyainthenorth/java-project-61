@@ -1,9 +1,13 @@
 package hexlet.code.games;
-
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Even {
-
+    public static void startGame(String name) {
+        String taskDescription = getTaskDescription();
+        String[][] qa = getQuestionsAndAnswers();
+        Engine.runGameLogic(name, taskDescription, qa);
+    }
     public static String getTaskDescription() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
