@@ -15,16 +15,11 @@ public class Progression {
             int progressionLength = 10;
             int missingIndex = Utils.getRandomInt(1, progressionLength);
 
-            int[] progression = generateProgression(start, step, progressionLength);
-            String[] progressionStrings = new String[progression.length];
-            String correctAnswer = Integer.toString(progression[missingIndex]);
-            progressionStrings[missingIndex] = "..";
+            String progressionString = generateProgression(start, step, progressionLength);
+            String[] progressionStrings = progressionString.split(" ");
 
-            for (int j = 0; j < progression.length; j++) {
-                if (j != missingIndex) {
-                    progressionStrings[j] = Integer.toString(progression[j]);
-                }
-            }
+            String correctAnswer = progressionStrings[missingIndex];;
+            progressionStrings[missingIndex] = "..";
 
             String question = String.join(" ", progressionStrings);
             qa[i][0] = question;
@@ -33,11 +28,16 @@ public class Progression {
         return qa;
     }
 
-    private static int[] generateProgression(int start, int step, int length) {
-        int[] progression = new int[length];
+    private static String generateProgression(int start, int step, int length) {
+        String progression = "";
+
         for (int i = 0; i < length; i++) {
-            progression[i] = start + i * step;
+            if (i > 0) {
+                progression += " ";
+            }
+            progression += (start + i * step);
         }
+
         return progression;
     }
 }

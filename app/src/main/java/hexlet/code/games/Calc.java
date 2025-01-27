@@ -19,18 +19,14 @@ public class Calc {
             char operator = operators[randomIndex];
 
             String question = number1 + " " + operator + " " + number2;
-            String correctAnswer = getCorrectAnswer(question);
+            int correctAnswer = getCorrectAnswer(number1, number2, operator);
             qa[i][0] = question;
-            qa[i][1] = correctAnswer;
+            qa[i][1] = Integer.toString(correctAnswer);
         }
         return qa;
     }
 
-    public static String getCorrectAnswer(String question) {
-        String[] parts = question.split(" ");
-        int number1 = Integer.parseInt(parts[0]);
-        char operator = parts[1].charAt(0);
-        int number2 = Integer.parseInt(parts[2]);
+    public static int getCorrectAnswer(int number1, int number2, char operator) {
         int result;
 
         switch (operator) {
@@ -47,7 +43,7 @@ public class Calc {
                 throw new IllegalArgumentException("Unknown operator: " + operator);
         }
 
-        return Integer.toString(result);
+        return result;
     }
 }
 

@@ -12,11 +12,13 @@ public class Even {
         String[][] qa = new String[3][2];
         for (int i = 0; i < 3; i++) {
             int number = Utils.getRandomInt(0, 100);
-            boolean isEven = number % 2 == 0;
-            String correctAnswer = isEven ? "yes" : "no";
+            String correctAnswer = isEven(number) ? "yes" : "no";
             qa[i][0] = Integer.toString(number);
             qa[i][1] = correctAnswer;
         }
         return qa;
+    }
+    public static boolean isEven (int number) {
+        return number%2==0;
     }
 }
