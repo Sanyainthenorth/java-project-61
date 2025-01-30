@@ -1,5 +1,6 @@
 
 plugins {
+    jacoco
     id("application")
     id("checkstyle")
 }
@@ -35,3 +36,4 @@ tasks.jar {
         )
     }
 }
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
