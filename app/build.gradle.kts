@@ -29,10 +29,8 @@ tasks.test {
 }
 
 tasks.jacocoTestReport {
-    dependsOn(tasks.test)  // Убедитесь, что отчет генерируется после выполнения тестов
     reports {
-        xml.required.set(true)  // Генерация отчета в формате XML
-        html.required.set(true)  // (Опционально) Генерация HTML отчета
+        xml.required.set(true)
     }
 }
 
