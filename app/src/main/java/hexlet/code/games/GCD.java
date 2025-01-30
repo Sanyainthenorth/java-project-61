@@ -3,7 +3,8 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class GCD {
-    public static void startGame(String name) {
+    public static void startGame() {
+        String name = Engine.greetingUser();
         String taskDescription = getTaskDescription();
         String[][] qa = getQuestionsAndAnswers();
         Engine.runGameLogic(name, taskDescription, qa);
@@ -13,7 +14,8 @@ public class GCD {
     }
 
     public static String[][] getQuestionsAndAnswers() {
-        String[][] qa = new String[3][2];
+        int rounds = Engine.rounds;
+        String[][] qa = new String[rounds][2];
         for (int i = 0; i < 3; i++) {
             int number1 = Utils.getRandomInt(0, 50);
             int number2 = Utils.getRandomInt(0, 50);

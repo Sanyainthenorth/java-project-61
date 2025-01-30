@@ -3,7 +3,8 @@ import hexlet.code.Utils;
 import hexlet.code.Engine;
 
 public class Prime {
-    public static void startGame(String name) {
+    public static void startGame() {
+        String name = Engine.greetingUser();
         String taskDescription = getTaskDescription();
         String[][] qa = getQuestionsAndAnswers();
         Engine.runGameLogic(name, taskDescription, qa);
@@ -13,7 +14,8 @@ public class Prime {
     }
 
     public static String[][] getQuestionsAndAnswers() {
-        String[][] qa = new String[3][2];
+        int rounds = Engine.rounds;
+        String[][] qa = new String[rounds][2];
         for (int i = 0; i < 3; i++) {
             int number = Utils.getRandomInt(0, 100);
             String question = Integer.toString(number);

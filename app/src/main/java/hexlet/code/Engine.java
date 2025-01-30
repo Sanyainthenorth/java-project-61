@@ -2,6 +2,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    private static final Scanner INPUT_SCANNER = new Scanner(System.in);
+    public static int rounds = 3;
     public static String greetingUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
@@ -10,9 +12,6 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
         return name;
     }
-
-    private static final Scanner INPUT_SCANNER = new Scanner(System.in);
-
 
     public static void runGameLogic(String name, String taskDescription, String[][] qa) {
         System.out.println(taskDescription);

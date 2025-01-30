@@ -3,7 +3,8 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    public static void startGame(String name) {
+    public static void startGame() {
+        String name = Engine.greetingUser();
         String taskDescription = getTaskDescription();
         String[][] questionsAndAnswers = getQuestionsAndAnswers();
         Engine.runGameLogic(name, taskDescription, questionsAndAnswers);
@@ -13,7 +14,8 @@ public class Progression {
     }
 
     public static String[][] getQuestionsAndAnswers() {
-        String[][] qa = new String[3][2];
+        int rounds = Engine.rounds;
+        String[][] qa = new String[rounds][2];
         for (int i = 0; i < 3; i++) {
             int start = Utils.getRandomInt(0, 10);
             int step = Utils.getRandomInt(1, 6);
@@ -34,17 +36,18 @@ public class Progression {
     }
 
     private static String generateProgression(int start, int step, int length) {
-        String progression = "";
+        StringBuilder progression = new StringBuilder();
 
         for (int i = 0; i < length; i++) {
             if (i > 0) {
-                progression += " ";
+                progression.append(" ");
             }
-            progression += (start + i * step);
+            progression.append(start + i * step);
         }
 
-        return progression;
+        return progression.toString();
     }
+
 }
 
 

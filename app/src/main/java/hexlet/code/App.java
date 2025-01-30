@@ -21,27 +21,24 @@ public class App {
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
         scanner.nextLine();
-
-        String name = null;
-
         switch (choice) {
             case 1:
-                name = Engine.greetingUser();
+                Engine.greetingUser();
                 break;
             case 2:
-                Even.startGame(name);
+                Even.startGame();
                 break;
             case 3:
-                Calc.startGame(name);
+                Calc.startGame();
                 break;
             case 4:
-                GCD.startGame(name);
+                GCD.startGame();
                 break;
             case 5:
-                Progression.startGame(name);
+                Progression.startGame();
                 break;
             case 6:
-                Prime.startGame(name);
+                Prime.startGame();
                 break;
             case 0:
                 System.out.println("Goodbye!");
