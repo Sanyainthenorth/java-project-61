@@ -9,16 +9,19 @@ public class GCD {
         String[][] qa = getQuestionsAndAnswers();
         Engine.runGameLogic(name, taskDescription, qa);
     }
+
     public static String getTaskDescription() {
         return "Find the greatest common divisor of given numbers.";
     }
 
     public static String[][] getQuestionsAndAnswers() {
-        int rounds = Engine.rounds;
+        int rounds = Engine.getRounds();
         String[][] qa = new String[rounds][2];
-        for (int i = 0; i < 3; i++) {
-            int number1 = Utils.getRandomInt(0, 50);
-            int number2 = Utils.getRandomInt(0, 50);
+
+        for (int i = 0; i < rounds; i++) {
+            int number1 = Utils.getRandomInt(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
+            int number2 = Utils.getRandomInt(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
+
             String question = number1 + " " + number2;
             String correctAnswer = getCorrectAnswer(number1, number2);
             qa[i][0] = question;
@@ -36,5 +39,6 @@ public class GCD {
         return Integer.toString(number1);
     }
 }
+
 
 

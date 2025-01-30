@@ -1,14 +1,21 @@
 package hexlet.code;
+
 import java.util.Scanner;
 
 public class Engine {
     private static final Scanner INPUT_SCANNER = new Scanner(System.in);
-    public static int rounds = 3;
+    private static final int MAX_ROUNDS = 3;
+    public static final int MIN_NUMBER = 0;
+    public static final int MAX_NUMBER = 100;
+
+    public static int getRounds() {
+        return MAX_ROUNDS;
+    }
+
     public static String greetingUser() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
-        String name = scanner.nextLine();
+        String name = INPUT_SCANNER.nextLine();
         System.out.println("Hello, " + name + "!");
         return name;
     }
@@ -30,13 +37,12 @@ public class Engine {
                 System.out.println("Correct!");
                 correctAnswersCount++;
             } else {
-
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 return;
             }
 
-            if (correctAnswersCount == 3) {
+            if (correctAnswersCount == MAX_ROUNDS) {
                 System.out.println("Congratulations, " + name + "!");
                 return;
             }

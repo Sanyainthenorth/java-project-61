@@ -3,25 +3,28 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
+
     public static void startGame() {
         String name = Engine.greetingUser();
         String taskDescription = getTaskDescription();
         String[][] qa = getQuestionsAndAnswers();
         Engine.runGameLogic(name, taskDescription, qa);
     }
+
     public static String getTaskDescription() {
         return "What is the result of the expression?";
     }
 
     public static String[][] getQuestionsAndAnswers() {
-        int rounds = Engine.rounds;
+        int rounds = Engine.getRounds();
         String[][] qa = new String[rounds][2];
-        for (int i = 0; i < 3; i++) {
-            int number1 = Utils.getRandomInt(0, 100);
-            int number2 = Utils.getRandomInt(0, 100);
+
+        for (int i = 0; i < rounds; i++) {
+            int number1 = Utils.getRandomInt(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
+            int number2 = Utils.getRandomInt(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
 
             char[] operators = {'+', '-', '*'};
-            int randomIndex = Utils.getRandomInt(0, 3);
+            int randomIndex = Utils.getRandomInt(0, operators.length);
             char operator = operators[randomIndex];
 
             String question = number1 + " " + operator + " " + number2;
@@ -52,5 +55,6 @@ public class Calc {
         return result;
     }
 }
+
 
 
