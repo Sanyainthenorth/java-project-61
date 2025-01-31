@@ -1,5 +1,4 @@
 plugins {
-    jacoco
     id("application")
     id("checkstyle")
 }
@@ -28,21 +27,8 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.jacocoTestReport {
-    reports {
-        xml.required.set(true)
-    }
-}
-
 checkstyle {
     toolVersion = "10.12.4"
     configFile = file("config/checkstyle/checkstyle.xml")
 }
 
-tasks.jar {
-    manifest {
-        attributes(
-            "Main-Class" to "hexlet.code.App"
-        )
-    }
-}
